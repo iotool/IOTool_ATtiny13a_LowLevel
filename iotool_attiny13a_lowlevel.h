@@ -4,6 +4,7 @@
 // https://github.com/iotool/IOTool_ATtiny13a_LowLevel
 // 
 // 2017-04-07  RoHa  v1.0 read/write pins, deep sleep
+// 2017-04-24  RoHa  v1.1 pwm
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -82,6 +83,11 @@
 #define ADC2_PB4_SELECT   ADMUX |= (0 << REFS0); ADMUX &= ~((1 << MUX1)|(1 << MUX0)); ADMUX |= (1 << MUX1)|(0 << MUX0)
 #define ADC3_PB3_SELECT   ADMUX |= (0 << REFS0); ADMUX &= ~((1 << MUX1)|(1 << MUX0)); ADMUX |= (1 << MUX1)|(1 << MUX0)
 
+// analog write pwm
+#define PWM_ENABLE       TCCR0B |= (1 << CS01) ; TCCR0A |= (1 << WGM01) | (1 << WGM00)
+#define PWM0_PB0_SELECT  TCCR0A |= (1 << COM0A1)
+#define PWM1_PB1_SELECT  TCCR0A |= (1 << COM0B1)
+
 // analog read
 uint16_t readADC(uint8_t n) 
 {
@@ -95,6 +101,17 @@ uint16_t readADC(uint8_t n)
   }
   rcAdc /= n;
   return rcAdc;
+}
+
+// analog write
+void writePWM0(int val)
+{
+    OCR0A = val;
+}
+
+void writePWM1(int val)
+{
+    OCR0B = val;
 }
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
