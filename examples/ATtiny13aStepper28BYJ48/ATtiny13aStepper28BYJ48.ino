@@ -3,12 +3,12 @@
 // 
 // https://github.com/iotool/IOTool_ATtiny13a_LowLevel
 // 
-// PIN2(3) ---UNL-Stepper.IN1
+// PIN2(3) ---UNL-Stepper.IN4
 // PIN3(4) ---LED
 // PIN4    ---UNL-Stepper.GND
-// PIN5(0) ---UNL-Stepper.IN2
-// PIN6(1) ---UNL-Stepper.IN3
-// PIN7(2) ---UNL-Stepper.IN4
+// PIN5(0) ---UNL-Stepper.IN1
+// PIN6(1) ---UNL-Stepper.IN2
+// PIN7(2) ---UNL-Stepper.IN3
 // PIN8    ---UNL-Stepper.VCC
 // 
 // 2000us = 17.4 rpm (minimum 1800us half step)
