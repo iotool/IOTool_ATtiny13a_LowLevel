@@ -3,6 +3,11 @@
 // 
 // https://github.com/iotool/IOTool_ATtiny13a_LowLevel
 // 
+// A0/PB5 (1)  (8) VCC
+// A3/PB3 (2)  (7) PB2/A1 
+// A2/PB4 (3)  (6) PB1/PWM
+//    GND (4)  (5) PB0/PWM
+// 
 // 2017-04-07  RoHa  v1.0 read/write pins, deep sleep
 // 2017-04-24  RoHa  v1.1 pwm
 // 2017-11-13  RoHa  v1.2 pb5/adc0
