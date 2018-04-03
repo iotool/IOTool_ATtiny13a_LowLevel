@@ -92,5 +92,6 @@ void morseValue(uint16_t value)
   morseDigit(morse_1000);
   morseDigit(morse_100);
   morseDigit(morse_10);
+  morseDigit(morse_1);
   DELAY_MORSE_3;
 }
