@@ -3,8 +3,12 @@
 Low level api to program ATtiny13a at Arduino IDE 1.6.x
 Reduce binary code and current consumption
 
-## Examples
+## ATtiny13a Examples
 
-* ATtiny13a messure ADC and deep sleep (power down)
-* ATtiny13a control servo SG90
-* ATtiny13a control stepper 28BYJ-48 by UNL2003
+* gpio input and output pins (ATtiny13aPins)
+* blink led (ATtiny13aBlink)
+* blink led without delay (ATtiny13aTimer0)
+* NEC infrared receiver (ATtiny13aIRrecv)
+* led morse code output (ATtiny13aMorse)
+* servo motor SG90 (ATtiny13aServoSG90)
+* stepper motor 28BYJ-48 by UNL2003 (ATtiny13aStepper28BYJ48)
