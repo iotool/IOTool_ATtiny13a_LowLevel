@@ -36,14 +36,15 @@
 #define SLEEPTIMER_8S        WDTCR |= (1<<WDP3)|(0<<WDP2)|(0<<WDP1)|(1<<WDP0)
 #define SLEEPTIMER_START     WDTCR |= (1<<WDTIE); WDTCR |= (0<<WDE); sei(); set_sleep_mode(SLEEP_MODE_PWR_DOWN)
 #define SLEEPTIMER_SLEEP     sleep_mode()
-#define OVERFLOWTIMER_213US  TCCR0B |= (1<<CS00) /* 256x 0.833us @ 1.2Mhz */ 
+#define OVERFLOWTIMER_1X2MHZ TCCR0B |= (1<<CS00) /* 177.50 us 256x 0.833us @ 1.2Mhz */ 
+#define OVERFLOWTIMER_150KHZ TCCR0B |= (1<<CS01) /* 1706.6 us 256x 6.666us @ 1.2Mhz */ 
 #define OVERFLOWCOUNT_25PCT  TCNT0 = 63          /* 160.00 us overflow interval */
 #define OVERFLOWCOUNT_50PCT  TCNT0 = 127         /* 106.66 us overflow interval */
 #define OVERFLOWCOUNT_75PCT  TCNT0 = 191         /*  53.33 us overflow interval */
-#define OVERFLOWCOUNT_10US   TCNT0 = 12          /*  10.00 us overflow interval */
-#define OVERFLOWCOUNT_13US   TCNT0 = 16          /*  13.33 us overflow interval */
-#define OVERFLOWCOUNT_100US  TCNT0 = 120         /* 100.00 us overflow interval */
-#define OVERFLOWCOUNT_125US  TCNT0 = 150         /* 125.00 us overflow interval */
+#define OVERFLOWCOUNT_10US   TCNT0 = 244         /*  10.00 us overflow interval 255-12+1  */
+#define OVERFLOWCOUNT_13US   TCNT0 = 240         /*  13.33 us overflow interval 255-16+1  */
+#define OVERFLOWCOUNT_100US  TCNT0 = 136         /* 100.00 us overflow interval 255-120+1 */
+#define OVERFLOWCOUNT_125US  TCNT0 = 106         /* 125.00 us overflow interval 255-150+1 */
 #define TIMER_CLEAR          cli()
 #define TIMER_START          sei()
 #define TIMER_USE_OVERFLOW   TIMSK0 |= (1<<TOIE0) /* TIMSK0 |= _BV(TOIE0) */
