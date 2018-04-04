@@ -5,10 +5,10 @@ Reduce binary code and current consumption
 
 ## ATtiny13a Examples
 
-* gpio input and output pins (ATtiny13aPins)
-* blink led (ATtiny13aBlink)
-* blink led without delay (ATtiny13aTimer0)
-* NEC infrared receiver (ATtiny13aIRrecv)
-* led morse code output (ATtiny13aMorse)
-* servo motor SG90 (ATtiny13aServoSG90)
-* stepper motor 28BYJ-48 by UNL2003 (ATtiny13aStepper28BYJ48)
+* gpio input and output pins (ATtiny13aPins / 402 byte)
+* blink led (ATtiny13aBlink / 94 byte)
+* blink led without delay (ATtiny13aTimer0 / 168 byte)
+* NEC infrared receiver (ATtiny13aIRrecv / 784 byte)
+* led morse code output (ATtiny13aMorse / 448 byte)
+* servo motor SG90 (ATtiny13aServoSG90 / 240 byte)
+* stepper motor 28BYJ-48 (ATtiny13aStepper28BYJ48 / 332 byte)
