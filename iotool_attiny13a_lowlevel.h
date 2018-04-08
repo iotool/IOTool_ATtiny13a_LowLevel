@@ -12,6 +12,7 @@
 // 2017-04-24  RoHa  v1.1 pwm
 // 2017-11-13  RoHa  v1.2 pb5/adc0
 // 2018-04-04  RoHa  v1.3 timer, toggle
+// 2018-04-08  RRoHa v1.3b cpu frequency
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -51,7 +52,7 @@
 #define TIMER_ON_WAKEUP      ISR(WDT_vect)
 #define TIMER_ON_OVERFLOW    ISR(TIM0_OVF_vect)
 
-// delay
+// delay @ 1.2 MHz
 #define DELAY_1MS    _delay_ms(1)
 #define DELAY_5MS    _delay_ms(6)
 #define DELAY_10MS   _delay_ms(12)
@@ -148,5 +149,39 @@ void writePWM1(int val)
 {
     OCR0B = val;
 }
+
+// cpu frequency
+#define CHANGE_CPU_9MHZ6  cli();CLKPR=(1<<CLKPCE);CLKPR=0;sei(); // 4.7 mA @5V
+#define CHANGE_CPU_4MHZ8  cli();CLKPR=(1<<CLKPCE);CLKPR=1;sei(); // 3.6 mA @5V
+#define CHANGE_CPU_2MHZ4  cli();CLKPR=(1<<CLKPCE);CLKPR=2;sei(); // 2.3 mA @5V
+#define CHANGE_CPU_1MHZ2  cli();CLKPR=(1<<CLKPCE);CLKPR=3;sei(); // 1.7 mA @5V
+#define CHANGE_CPU_600KHZ cli();CLKPR=(1<<CLKPCE);CLKPR=4;sei(); // 1.2 mA @5V
+#define CHANGE_CPU_300KHZ cli();CLKPR=(1<<CLKPCE);CLKPR=5;sei(); // 1.0 mA @5V
+#define CHANGE_CPU_150KHZ cli();CLKPR=(1<<CLKPCE);CLKPR=6;sei(); // 0.9 mA @5V
+
+// adc frequency 150 kHz
+#define CHANGE_ADC_9MHZ6  ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=(1<<ADPS0)
+#define CHANGE_ADC_4MHZ8  ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=(1<<ADPS1)
+#define CHANGE_ADC_2MHZ4  ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=((1<<ADPS1)|(1<<ADPS0))
+#define CHANGE_ADC_1MHZ2  ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=(1<<ADPS2)
+#define CHANGE_ADC_600KHZ ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=((2<<ADPS2)|(0<<ADPS0))
+#define CHANGE_ADC_300KHZ ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=((2<<ADPS2)|(1<<ADPS1))
+#define CHANGE_ADC_150KHZ ADCSRA|=((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));ADCSRA^=((2<<ADPS1)|(1<<ADPS1)|(1<<ADPS0))
+
+// delay
+#define DELAY_1S_9MHZ6      _delay_ms(9600)
+#define DELAY_1S_4MHZ8      _delay_ms(4800)
+#define DELAY_1S_2MHZ4      _delay_ms(2400)
+#define DELAY_1S_1MHZ2      _delay_ms(1200)
+#define DELAY_1S_600KHZ     _delay_ms(600)
+#define DELAY_1S_300KHZ     _delay_ms(300)
+#define DELAY_1S_150KHZ     _delay_ms(150)
+#define DELAY_100MS_9MHZ6   _delay_ms(960)
+#define DELAY_100MS_4MHZ8   _delay_ms(480)
+#define DELAY_100MS_2MHZ4   _delay_ms(240)
+#define DELAY_100MS_1MHZ2   _delay_ms(120)
+#define DELAY_100MS_600KHZ  _delay_ms(60)
+#define DELAY_100MS_300KHZ  _delay_ms(30)
+#define DELAY_100MS_150KHZ  _delay_ms(15)
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
