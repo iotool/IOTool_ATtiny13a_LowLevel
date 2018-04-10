@@ -13,7 +13,7 @@
 //  GND --4  5
 // 
 // Change mode by poweron switch.
-// LED1 dimmed 0%, 50%, 90% by software pwm
+// LED1 dimmed 10%, 50%, 90% by software pwm
 // LED2 display toogle mode.
 //
 // 2018-04-10 RoHa POC
@@ -143,8 +143,8 @@ void loop()
 {
   switch(gEepromMode) {
     case 0:
-      // 100%
-      vTimerSoftPwmPB3 = 100;
+      // dimmer 90%
+      vTimerSoftPwmPB3 = 90;
       break;
     case 1:
       // dimmer 50%
