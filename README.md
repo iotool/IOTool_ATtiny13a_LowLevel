@@ -12,3 +12,6 @@ Reduce binary code and current consumption
 * led morse code output (ATtiny13aMorse / 448 byte)
 * servo motor SG90 (ATtiny13aServoSG90 / 240 byte)
 * stepper motor 28BYJ-48 (ATtiny13aStepper28BYJ48 / 332 byte)
+* 38 kHz pulse generator to drive infrared led
+* software pwm with 50 Hz for multi channel gpio pin
+* poweron switch (toggle mode by power on/off)
