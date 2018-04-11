@@ -28,8 +28,6 @@
 #define TIMER_OVERFLOW_ENABLE    TIMSK0 |= (1<<TOIE0) 
 #define TIMER_OVERFLOW_START     sei()
 #define TIMER_ON_OVERFLOW        ISR(TIM0_OVF_vect)
-#define TIMER_OVERFLOW_1TICK     TCNT0 = 255
-#define TIMER_OVERFLOW_3TICK     TCNT0 = 252
 #define PINMODE_PB3_OUTPUT       DDRB |= (1 << PB3)
 #define PINMODE_PB4_OUTPUT       DDRB |= (1 << PB4)
 #define DIGITALWRITE_PB3_LOW     PORTB &= ~(1 << PB3)
