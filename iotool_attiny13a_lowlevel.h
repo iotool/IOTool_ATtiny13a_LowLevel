@@ -12,7 +12,8 @@
 // 2017-04-24  RoHa  v1.1 pwm
 // 2017-11-13  RoHa  v1.2 pb5/adc0
 // 2018-04-04  RoHa  v1.3 timer, toggle
-// 2018-04-08  RRoHa v1.3b cpu frequency
+// 2018-04-08  RoHa  v1.3b cpu frequency
+// 2018-04-13  RoHa  v1.3c reset memory
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -183,5 +184,29 @@ void writePWM1(int val)
 #define DELAY_100MS_600KHZ  _delay_ms(60)
 #define DELAY_100MS_300KHZ  _delay_ms(30)
 #define DELAY_100MS_150KHZ  _delay_ms(15)
+
+#define RESET_BUTTON_MAGIC  0xDE49
+
+#define USE_RESET_BUTTON                    \
+  typedef struct {                          \
+    uint16_t crc;                           \
+    uint8_t  cnt;                           \
+    unsigned rst:1;                         \
+    unsigned :7;                            \
+    uint32_t dat;                           \
+  } tRstMem;                                \
+  tRstMem gRstMem __attribute__             \
+    ((__section__ (".noinit")))             \
+  ;
+
+#define INIT_RESET_BUTTON                   \
+  if (gRstMem.crc != RESET_BUTTON_MAGIC) {  \
+    gRstMem.crc = RESET_BUTTON_MAGIC;       \
+    gRstMem.cnt = 0;                        \
+    gRstMem.rst = 0;                        \
+    gRstMem.dat = 0;                        \
+  } else {                                  \
+    gRstMem.cnt++;                          \
+  }
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
