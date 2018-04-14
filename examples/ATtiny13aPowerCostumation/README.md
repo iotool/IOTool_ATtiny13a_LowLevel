@@ -9,7 +9,8 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 * FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
 * CPU: 1.2 MHz (9.6 MHz prescale 8)
 * BOD: brown-out detection disabled
-* ADC: on/off (analog ditigal converter)
+* ADC1: on/off (analog ditigal converter)
+* ADC2: on/off (analog ditigal converter - ppr)
 * ACD: on/off (analog comparator)
 
 <table>
@@ -74,6 +75,18 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,520mA</td><!--9//-->
 </tr>
 <tr>
+  <td>ADC* off</td>
+  <td>4,17mA</td><!--1//-->
+  <td>2,77mA</td><!--2//-->
+  <td>1,84mA</td><!--3//-->
+  <td>1,25mA</td><!--4//-->
+  <td>0,860mA</td><!--5//-->
+  <td>0,690mA</td><!--6//-->
+  <td>0,590mA</td><!--7//-->
+  <td>0,548mA</td><!--8//-->
+  <td>0,531mA</td><!--9//-->
+</tr>
+<tr>
   <td>ACD off</td>
   <td>4,22mA</td><!--1//-->
   <td>2,76mA</td><!--2//-->
@@ -86,6 +99,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,461mA</td><!--9//-->
 </tr>
 </table>
+* PRADC
 
 ### 128 kHz
 
