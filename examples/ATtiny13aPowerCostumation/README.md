@@ -77,7 +77,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,592mA</td><!--7//-->
   <td>0,540mA</td><!--8//-->
   <td>0,520mA</td><!--9//-->
-  <td>---</td><!--9//-->
+  <td>n/a</td><!--9//-->
 </tr>
 <tr>
   <td>ADC* off</td>
@@ -102,6 +102,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,632mA</td><!--6//-->
   <td>0,536mA</td><!--7//-->
   <td>0,492mA</td><!--8//-->
+  <td>0,461mA</td><!--9//-->
   <td>0,406mA</td><!--9//-->
 </tr>
 <tr>
@@ -111,13 +112,14 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>1,77mA</td><!--3//-->
   <td>1,114mA</td><!--4//-->
   <td>0,776mA</td><!--5//-->
-  <td>0,607</td><!--6//-->
+  <td>0,607mA</td><!--6//-->
   <td>0,511mA</td><!--7//-->
   <td>0,475mA</td><!--8//-->
+  <td>0,431mA</td><!--9//-->
   <td>0,411mA</td><!--9//-->
 </tr>
 </table>
-* PRADC ** PRTIM0
+* PRADC ** 4.8 MHz
 
 ### 128 kHz
 
