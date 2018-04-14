@@ -73,15 +73,15 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
 <tr>
   <td>ACD off</td>
-  <td>4,30mA</td><!--1//-->
-  <td>2,84mA</td><!--2//-->
-  <td>1,89mA</td><!--3//-->
-  <td>1,29mA</td><!--4//-->
-  <td>0,859mA</td><!--5//-->
-  <td>0,699mA</td><!--6//-->
-  <td>0,608mA</td><!--7//-->
-  <td>0,564mA</td><!--8//-->
-  <td>0,534mA</td><!--9//-->
+  <td>4,22mA</td><!--1//-->
+  <td>2,76mA</td><!--2//-->
+  <td>1,83mA</td><!--3//-->
+  <td>1,164mA</td><!--4//-->
+  <td>0,793mA</td><!--5//-->
+  <td>0,632mA</td><!--6//-->
+  <td>0,536mA</td><!--7//-->
+  <td>0,492mA</td><!--8//-->
+  <td>0,461mA</td><!--9//-->
 </tr>
 
 </table>
