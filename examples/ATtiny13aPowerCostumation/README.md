@@ -194,4 +194,16 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>364uA</td><!--8//-->
   <td>357uA</td><!--9//-->
 </tr>
+<tr>
+  <td>TIM0 off</td>
+  <td>425uA</td><!--1//-->
+  <td>383uA</td><!--2//-->
+  <td>349uA</td><!--3//-->
+  <td>356uA</td><!--4//-->
+  <td>361uA</td><!--5//-->
+  <td>339uA</td><!--6//-->
+  <td>343uA</td><!--7//-->
+  <td>343uA</td><!--8//-->
+  <td>337uA</td><!--9//-->
+</tr>
 </table>
