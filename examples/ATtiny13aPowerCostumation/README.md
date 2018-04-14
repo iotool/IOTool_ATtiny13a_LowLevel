@@ -25,6 +25,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>6</td>
   <td>7</td>
   <td>8</td>
+  <td>8**</td>
 </tr>
 <tr>
   <td>DIV</td>
@@ -37,6 +38,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>64</td>
   <td>128</td>
   <td>256</td>
+  <td>256**</td>
 </tr>
 <tr>
   <td>CPU</td>
@@ -49,6 +51,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>150kHz</td>
   <td>75kHz</td>
   <td>37,5kHz</td>
+  <td>18,75kHz</td>
 </tr>
 <tr>
   <td>Prescale</td>
@@ -61,6 +64,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,616mA</td><!--7//-->
   <td>0,551mA</td><!--8//-->
   <td>0,548mA</td><!--9//-->
+  <td>0,490mA</td><!--9//-->
 </tr>
 <tr>
   <td>ADC off</td>
@@ -73,6 +77,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,592mA</td><!--7//-->
   <td>0,540mA</td><!--8//-->
   <td>0,520mA</td><!--9//-->
+  <td>---</td><!--9//-->
 </tr>
 <tr>
   <td>ADC* off</td>
@@ -85,6 +90,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,590mA</td><!--7//-->
   <td>0,548mA</td><!--8//-->
   <td>0,531mA</td><!--9//-->
+  <td>0,478mA</td><!--9//-->
 </tr>
 <tr>
   <td>ACD off</td>
@@ -96,7 +102,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,632mA</td><!--6//-->
   <td>0,536mA</td><!--7//-->
   <td>0,492mA</td><!--8//-->
-  <td>0,461mA</td><!--9//-->
+  <td>0,406mA</td><!--9//-->
 </tr>
 <tr>
   <td>TIM0 off</td>
@@ -108,10 +114,10 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,607</td><!--6//-->
   <td>0,511mA</td><!--7//-->
   <td>0,475mA</td><!--8//-->
-  <td>0,431mA</td><!--9//-->
+  <td>0,411mA</td><!--9//-->
 </tr>
 </table>
-* PRADC
+* PRADC ** PRTIM0
 
 ### 128 kHz
 
