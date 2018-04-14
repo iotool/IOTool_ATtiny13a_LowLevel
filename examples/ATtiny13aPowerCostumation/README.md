@@ -6,6 +6,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
 * FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
 * CPU: 1.2 MHz (9.6 MHz prescale 8)
+* BOD: brown-out detection disabled
 * ADC: on/off (analog ditigal converter)
 * ACD: on/off (analog comparator)
 
