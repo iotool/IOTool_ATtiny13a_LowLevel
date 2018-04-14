@@ -4,6 +4,8 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
 ## Test CPU @ 5V
 
+### 9.6 MHz
+
 * FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
 * CPU: 1.2 MHz (9.6 MHz prescale 8)
 * BOD: brown-out detection disabled
@@ -71,7 +73,6 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,540mA</td><!--8//-->
   <td>0,520mA</td><!--9//-->
 </tr>
-
 <tr>
   <td>ACD off</td>
   <td>4,22mA</td><!--1//-->
@@ -84,5 +85,87 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,492mA</td><!--8//-->
   <td>0,461mA</td><!--9//-->
 </tr>
+</table>
 
+### 128 kHz
+
+* FUSE: -U lfuse:w:0x7B:m -U hfuse:w:0xFF:m
+* CPU: 128 kHz (128 kHz prescale 1)
+* BOD: brown-out detection disabled
+* ADC: on/off (analog ditigal converter)
+* ACD: on/off (analog comparator)
+
+<table>
+<tr>
+  <td>CLKPR</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>DIV</td>
+  <td>1</td>
+  <td>2</td>
+  <td>4</td>
+  <td>8</td>
+  <td>16</td>
+  <td>32</td>
+  <td>64</td>
+  <td>128</td>
+  <td>256</td>
+</tr>
+<tr>
+  <td>CPU</td>
+  <td>128kHz</td>
+  <td>64kHz</td>
+  <td>32kHz</td>
+  <td>16kHz</td>
+  <td>8kHz</td>
+  <td>4kHz</td>
+  <td>2kHz</td>
+  <td>1kHz</td>
+  <td>500Hz</td>
+</tr>
+<tr>
+  <td>Prescale</td>
+  <td>518uA</td><!--1//-->
+  <td>489uA</td><!--2//-->
+  <td>473uA</td><!--3//-->
+  <td>448uA</td><!--4//-->
+  <td>459uA</td><!--5//-->
+  <td>460uA</td><!--6//-->
+  <td>432uA</td><!--7//-->
+  <td>440uA</td><!--8//-->
+  <td>445uA</td><!--9//-->
+</tr>
+<tr>
+  <td>ADC off</td>
+  <td>512uA</td><!--1//-->
+  <td>492uA</td><!--2//-->
+  <td>475uA</td><!--3//-->
+  <td>473uA</td><!--4//-->
+  <td>451uA</td><!--5//-->
+  <td>444uA</td><!--6//-->
+  <td>438uA</td><!--7//-->
+  <td>459uA</td><!--8//-->
+  <td>445uA</td><!--9//-->
+</tr>
+<tr>
+  <td>ACD off</td>
+  <td>462uA</td><!--1//-->
+  <td>433uA</td><!--2//-->
+  <td>389uA</td><!--3//-->
+  <td>379uA</td><!--4//-->
+  <td>392uA</td><!--5//-->
+  <td>371uA</td><!--6//-->
+  <td>369uA</td><!--7//-->
+  <td>364uA</td><!--8//-->
+  <td>357uA</td><!--9//-->
+</tr>
 </table>
