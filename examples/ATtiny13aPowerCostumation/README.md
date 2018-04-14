@@ -6,6 +6,8 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
 * FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
 * CPU: 1.2 MHz (9.6 MHz prescale 8)
+* ADC: on/off (analog ditigal converter)
+* ACD: on/off (analog comparator)
 
 <table>
 <tr>
@@ -68,4 +70,18 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,540mA</td><!--8//-->
   <td>0,520mA</td><!--9//-->
 </tr>
+
+<tr>
+  <td>ACD off</td>
+  <td>4,30mA</td><!--1//-->
+  <td>2,84mA</td><!--2//-->
+  <td>1,89mA</td><!--3//-->
+  <td>1,29mA</td><!--4//-->
+  <td>0,859mA</td><!--5//-->
+  <td>0,699mA</td><!--6//-->
+  <td>0,608mA</td><!--7//-->
+  <td>0,564mA</td><!--8//-->
+  <td>0,534mA</td><!--9//-->
+</tr>
+
 </table>
