@@ -2,6 +2,14 @@
 
 FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
+## 44 uA
+
+* 3,33 V (HT7333-A)
+* 18,75 kHz (4,8 MHz prescale 256)
+* ADC disabled
+* ACD disabled
+* TIMER0 disabled
+
 ## Test CPU @ 5V
 
 ### 9.6 MHz @ 4.75 V
