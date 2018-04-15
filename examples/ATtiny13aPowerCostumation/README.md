@@ -315,7 +315,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>0,123mA</td><!--7//-->
   <td>0,095mA</td><!--8//-->
   <td>0,082mA</td><!--9//-->
-  <td>n/a</td><!--9//-->
+  <td>0,042mA</td><!--9//-->
 </tr>
 </table>
 * PRADC ** 4.8 MHz
