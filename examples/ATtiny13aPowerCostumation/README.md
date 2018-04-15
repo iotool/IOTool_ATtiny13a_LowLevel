@@ -4,7 +4,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 
 ## Test CPU @ 5V
 
-### 9.6 MHz
+### 9.6 MHz @ 4.75 V
 
 * FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
 * CPU: 1.2 MHz (9.6 MHz prescale 8)
@@ -121,7 +121,7 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
 </table>
 * PRADC ** 4.8 MHz
 
-### 128 kHz
+### 128 kHz @ 4.75 V
 
 * FUSE: -U lfuse:w:0x7B:m -U hfuse:w:0xFF:m
 * CPU: 128 kHz (128 kHz prescale 1)
@@ -215,3 +215,107 @@ FUSE Calculator http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny13a
   <td>337uA</td><!--9//-->
 </tr>
 </table>
+
+### 9.6 MHz @ 3.33 V (HT7333-A)
+
+* FUSE: -U lfuse:w:0x6A:m -U hfuse:w:0xFF:m
+* CPU: 1.2 MHz (9.6 MHz prescale 8)
+* BOD: brown-out detection disabled
+* ADC: on/off (analog ditigal converter)
+* ACD: on/off (analog comparator)
+* TIMER0: on/off
+
+<table>
+<tr>
+  <td>CLKPR</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>8**</td>
+</tr>
+<tr>
+  <td>DIV</td>
+  <td>1</td>
+  <td>2</td>
+  <td>4</td>
+  <td>8</td>
+  <td>16</td>
+  <td>32</td>
+  <td>64</td>
+  <td>128</td>
+  <td>256</td>
+  <td>256**</td>
+</tr>
+<tr>
+  <td>CPU</td>
+  <td>9,6MHz</td>
+  <td>4,8MHz</td>
+  <td>2,4MHz</td>
+  <td>1,2MHz</td>
+  <td>600kHz</td>
+  <td>300kHz</td>
+  <td>150kHz</td>
+  <td>75kHz</td>
+  <td>37,5kHz</td>
+  <td>18,75kHz</td>
+</tr>
+<tr>
+  <td>Prescale</td>
+  <td>2,59mA</td><!--1//-->
+  <td>1,79mA</td><!--2//-->
+  <td>1,07mA</td><!--3//-->
+  <td>0,714mA</td><!--4//-->
+  <td>0,486mA</td><!--5//-->
+  <td>0,368mA</td><!--6//-->
+  <td>0,275mA</td><!--7//-->
+  <td>0,266mA</td><!--8//-->
+  <td>0,264mA</td><!--9//-->
+  <td>n/a</td><!--9//-->
+</tr>
+<tr>
+  <td>ADC* off</td>
+  <td>2,48mA</td><!--1//-->
+  <td>1,79mA</td><!--2//-->
+  <td>1,00mA</td><!--3//-->
+  <td>0,589mA</td><!--4//-->
+  <td>0,362mA</td><!--5//-->
+  <td>0,246mA</td><!--6//-->
+  <td>0,188mA</td><!--7//-->
+  <td>0,160mA</td><!--8//-->
+  <td>0,146mA</td><!--9//-->
+  <td>n/a</td><!--9//-->
+</tr>
+<tr>
+  <td>ACD off</td>
+  <td>2,40mA</td><!--1//-->
+  <td>1,61mA</td><!--2//-->
+  <td>0,894mA</td><!--3//-->
+  <td>0,527mA</td><!--4//-->
+  <td>0,299mA</td><!--5//-->
+  <td>0,181mA</td><!--6//-->
+  <td>0,123mA</td><!--7//-->
+  <td>0,095mA</td><!--8//-->
+  <td>0,082mA</td><!--9//-->
+  <td>n/a</td><!--9//-->
+</tr>
+<tr>
+  <td>TIM0 off</td>
+  <td>2,38mA</td><!--1//-->
+  <td>1,71mA</td><!--2//-->
+  <td>0,888mA</td><!--3//-->
+  <td>0,526mA</td><!--4//-->
+  <td>0,298mA</td><!--5//-->
+  <td>0,181mA</td><!--6//-->
+  <td>0,123mA</td><!--7//-->
+  <td>0,095mA</td><!--8//-->
+  <td>0,082mA</td><!--9//-->
+  <td>n/a</td><!--9//-->
+</tr>
+</table>
+* PRADC ** 4.8 MHz
