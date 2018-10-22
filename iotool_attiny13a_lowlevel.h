@@ -14,6 +14,7 @@
 // 2018-04-04  RoHa  v1.3 timer, toggle
 // 2018-04-08  RoHa  v1.3b cpu frequency
 // 2018-04-13  RoHa  v1.3c reset memory
+// 2019-09-29  RoHa  v1.4 pwm on/off
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -124,6 +125,13 @@
 #define PWM_ENABLE       TCCR0B |= (1 << CS01) ; TCCR0A |= (1 << WGM01) | (1 << WGM00)
 #define PWM0_PB0_SELECT  TCCR0A |= (1 << COM0A1)
 #define PWM1_PB1_SELECT  TCCR0A |= (1 << COM0B1)
+#define PWM0_PB0_SELECT  TCCR0A |= (1 << COM0A1)
+#define PWM_OFF          DDRB &= ~((1 << PB1)|(1 << PB0))
+#define PWM0_PB0_OFF     DDRB &= ~(1 << PB0)
+#define PWM1_PB1_OFF     DDRB &= ~(1 << PB1)
+#define PWM_ON           DDRB |= (1 << PB1)|(1 << PB0)
+#define PWM0_PB0_ON      DDRB |= (1 << PB0)
+#define PWM1_PB1_ON      DDRB |= (1 << PB1)
 
 // analog read
 uint16_t readADC(uint8_t n) 
@@ -210,3 +218,5 @@ void writePWM1(int val)
   }
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
+
+
