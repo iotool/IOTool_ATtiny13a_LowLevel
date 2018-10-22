@@ -15,3 +15,7 @@ Reduce binary code and current consumption
 * 38 kHz pulse generator to drive infrared led
 * software pwm with 50 Hz for multi channel gpio pin
 * poweron switch (toggle mode by power on/off)
+
+## Arduino IDE
+
+https://www.instructables.com/id/Updated-Guide-on-How-to-Program-an-Attiny13-or-13a/
