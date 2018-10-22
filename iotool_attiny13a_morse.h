@@ -3,20 +3,30 @@
 // https://github.com/iotool/IOTool_ATtiny13a_LowLevel
 // 
 // 2018-04-03  RoHa  v1.0
+// 2018-09-29  RoHa  v1.1 PWM on/off
 
 #include "iotool_attiny13a_lowlevel.h"
 
-// morse 12 words per minute
-
+// morse 12 words per minute = 100/200/300ms
+// morse  4 words per minute = 300/600/900ms
+// morse  f words per minute = 150/500/1000ms
+// morse  f words per minute = 400/1200/2400ms
 #define ATTINY13A_MORSE
-#define DELAY_MORSE   _delay_ms(100)
-#define DELAY_MORSE_2 _delay_ms(200)
-#define DELAY_MORSE_3 _delay_ms(300)
+#define DELAY_MORSE   _delay_ms(200)
+#define DELAY_MORSE_2 _delay_ms(400)
+#define DELAY_MORSE_3 _delay_ms(600)
 
 void morseDigit(byte digit) 
 {
   uint16_t mc = 15391; // 11110000011111
   mc = mc >> digit;
+  #ifdef ATTINY13A_MORSE_PWM
+    PWM_ON; DELAY_MORSE; if (mc & 16) DELAY_MORSE; PWM_OFF; DELAY_MORSE;
+    PWM_ON; DELAY_MORSE; if (mc &  8) DELAY_MORSE; PWM_OFF; DELAY_MORSE;
+    PWM_ON; DELAY_MORSE; if (mc &  4) DELAY_MORSE; PWM_OFF; DELAY_MORSE;
+    PWM_ON; DELAY_MORSE; if (mc &  2) DELAY_MORSE; PWM_OFF; DELAY_MORSE;
+    PWM_ON; DELAY_MORSE; if (mc &  1) DELAY_MORSE; PWM_OFF; DELAY_MORSE_3;
+  #endif
   #ifdef ATTINY13A_MORSE_PIN0
     DIGITALWRITE_PB0_HIGH; DELAY_MORSE; if (mc & 16) DELAY_MORSE; DIGITALWRITE_PB0_LOW; DELAY_MORSE;
     DIGITALWRITE_PB0_HIGH; DELAY_MORSE; if (mc &  8) DELAY_MORSE; DIGITALWRITE_PB0_LOW; DELAY_MORSE;
@@ -95,3 +105,5 @@ void morseValue(uint16_t value)
   morseDigit(morse_1);
   DELAY_MORSE_3;
 }
+
+
