@@ -19,3 +19,4 @@ Reduce binary code and current consumption
 ## Arduino IDE
 
 https://www.instructables.com/id/Updated-Guide-on-How-to-Program-an-Attiny13-or-13a/
+https://raw.githubusercontent.com/sleemanj/optiboot/master/dists/package_gogo_diy_attiny_index.json
