@@ -1,0 +1,14 @@
+attiny13_600kHz.name=ATtiny13_600kHz_1x8V_ClearEEPROM
+attiny13_600kHz.bootloader.tool=arduino:avrdude
+attiny13_600kHz.bootloader.unlock_bits=0xff
+attiny13_600kHz.bootloader.lock_bits=0xff
+attiny13_600kHz.bootloader.low_fuses=0x65
+attiny13_600kHz.bootloader.high_fuses=0xfd
+attiny13_600kHz.build.core=arduino:arduino
+attiny13_600kHz.build.board=attiny13
+attiny13_600kHz.build.f_cpu=600000L
+attiny13_600kHz.build.mcu=attiny13
+attiny13_600kHz.build.variant=tiny8_13
+attiny13_600kHz.upload.tool=arduino:avrdude
+attiny13_600kHz.upload.maximum_size=1024
+attiny13_600kHz.upload.maximum_data_size=64
