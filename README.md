@@ -20,3 +20,15 @@ Reduce binary code and current consumption
 
 https://www.instructables.com/id/Updated-Guide-on-How-to-Program-an-Attiny13-or-13a/
 https://raw.githubusercontent.com/sleemanj/optiboot/master/dists/package_gogo_diy_attiny_index.json
+
+## ATtiny13A Specs
+
+* 20mA @5V (10mA @3V) continuous current PB0:1:5 (PWM,RST)
+* 10mA @5V (5mA @3V) continuous current PB2:3:4 (ADC)
+* 40mA @5V (20mA @3V) maximum peak 100ns current PB0:1:5 (PWM,RST)
+* 20mA @5V (10mA @3V) maximum peak 100ns current PB2:3:4 (ADC)
+* 60mA @5V output_lo sum current PB0+1+2+3+4+5
+* 60mA @5V output_hi sum current PB0+1+2+3+4+5
+* 120mA @5V output_hi + output_lo sum current
+
+Example 40mA : PB0(HI) = 20mA LED to GND + PB1(LO) = 20mA LED to VCC
