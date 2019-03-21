@@ -51,7 +51,7 @@
 #define OVERFLOWCOUNT_20US   TCNT0 = 226                     /*  25.00 us overflow interval 255-30+1  */
 #define OVERFLOWCOUNT_100US  TCNT0 = 136                     /* 100.00 us overflow interval 255-120+1 */
 #define OVERFLOWCOUNT_125US  TCNT0 = 106                     /* 125.00 us overflow interval 255-150+1 */
-#define OVRFLTI600KHZ_2X3KHZ TCCR0B |= (1<<CS00)             /* 426.66 us 256x 1.666us @ 600kHz 001 = 1{1] */ 
+#define OVRFLTI600KHZ_2X3KHZ TCCR0B |= (1<<CS00)             /* 426.66 us 256x 1.666us @ 600kHz 001 = 1[1] */ 
 #define OVRFLTI600KHZ_293HZ  TCCR0B |= (1<<CS01)             /* 3413.3 us 256x 13.33us @ 600kHz 010 = 2[8] */ 
 #define OVRFLCNT2X3KHZ_10US  TCNT0 = 250                     /*     10 us overflow interval 255-6+1  (6x1.6666) */
 #define OVRFLCNT2X3KHZ_15US  TCNT0 = 247                     /*     15 us overflow interval 255-9+1  (9x1.6666) */
