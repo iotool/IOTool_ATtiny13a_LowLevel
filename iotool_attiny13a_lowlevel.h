@@ -16,6 +16,7 @@
 // 2018-04-13  RoHa  v1.3c reset memory
 // 2018-09-29  RoHa  v1.4 pwm on/off
 // 2019-03-21  RoHa  v1.5 pwm ovrfl 600kHz cpu
+// 2019-03-21  RoHa  v1.5b timer comp
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -52,7 +53,7 @@
 #define OVERFLOWCOUNT_100US  TCNT0 = 136                     /* 100.00 us overflow interval 255-120+1 */
 #define OVERFLOWCOUNT_125US  TCNT0 = 106                     /* 125.00 us overflow interval 255-150+1 */
 #define OVRFLTI600KHZ_2X3KHZ TCCR0B |= (1<<CS00)             /* 426.66 us 256x 1.666us @ 600kHz 001 = 1[1] */ 
-#define OVRFLTI600KHZ_293HZ  TCCR0B |= (1<<CS01)             /* 3413.3 us 256x 13.33us @ 600kHz 010 = 2[8] */ 
+#define OVRFLTI600KHZ_586HZ  TCCR0B |= (1<<CS01)             /*   1706 us 256x 6.666us @ 600kHz 010 = 2[8] */ 
 #define OVRFLCNT2X3KHZ_10US  TCNT0 = 250                     /*     10 us overflow interval 255-6+1  (6x1.6666) */
 #define OVRFLCNT2X3KHZ_15US  TCNT0 = 247                     /*     15 us overflow interval 255-9+1  (9x1.6666) */
 #define OVRFLCNT2X3KHZ_20US  TCNT0 = 244                     /*     20 us overflow interval 255-12+1 (12x1.6666) */
@@ -60,11 +61,20 @@
 #define OVRFLCNT2X3KHZ_50US  TCNT0 = 226                     /*     50 us overflow interval 255-30+1 (30x1.6666) */
 #define OVRFLCNT2X3KHZ_100US TCNT0 = 196                     /*    100 us overflow interval 255-60+1 (60x1.6666) */
 #define OVRFLCNT2X3KHZ_125US TCNT0 = 181                     /*    125 us overflow interval 255-75+1 (75x1.6666) */
-#define TIMER_CLEAR          cli()
-#define TIMER_START          sei()
+#define TIMER_CLEAR          cli()                           /* timer stop */
+#define TIMER_START          sei()                           /* timer start */
 #define TIMER_USE_OVERFLOW   TIMSK0 |= (1<<TOIE0) /* TIMSK0 |= _BV(TOIE0) */
+#define TIMER_USE_COMP_CLEAR TCCR0A = (1<<WGM01)             /* Clear on Compare Match */
+#define TIMER_USE_COMP_KEEP  TCCR0A = ((1<<WGM01)|(1<<WGM00))/* Set on Compare Match  */
+#define TIMER_USE_COMPARE_A  TIMSK0 |= (1 << OCIE0A)
+#define TIMER_USE_COMPARE_B  TIMSK0 |= (1 << OCIE0B)
 #define TIMER_ON_WAKEUP      ISR(WDT_vect)
 #define TIMER_ON_OVERFLOW    ISR(TIM0_OVF_vect)
+#define TIMER_ON_COMPARE_A   ISR(TIM0_COMPA_vect)
+#define TIMER_ON_COMPARE_B   ISR(TIM0_COMPB_vect)
+#define TIMER_SET_COUNTER    TCNT0
+#define TIMER_SET_COMPARE_A  OCR0A
+#define TIMER_SET_COMPARE_B  OCR0B
 
 // delay @ 1.2 MHz
 #define DELAY_1MS    _delay_ms(1)
@@ -230,5 +240,4 @@ void writePWM1(int val)
   }
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
-
 
