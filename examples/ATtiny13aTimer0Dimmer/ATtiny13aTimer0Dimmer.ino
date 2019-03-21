@@ -1,5 +1,6 @@
 // Timer example for accurate timing with low level api to pulse led 100 nanoseconds.
 // https://github.com/iotool/IOTool_ATtiny13a_LowLevel
+// https://youtu.be/4GzccQVl6-Q
 // 
 // 2019-03-21  RoHa  304 byte ROM (16%), 2 byte RAM (3%)
 
