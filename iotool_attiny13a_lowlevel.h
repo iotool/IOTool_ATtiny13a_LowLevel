@@ -14,7 +14,8 @@
 // 2018-04-04  RoHa  v1.3 timer, toggle
 // 2018-04-08  RoHa  v1.3b cpu frequency
 // 2018-04-13  RoHa  v1.3c reset memory
-// 2019-09-29  RoHa  v1.4 pwm on/off
+// 2018-09-29  RoHa  v1.4 pwm on/off
+// 2019-03-21  RoHa  v1.5 pwm ovrfl 600kHz cpu
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -39,15 +40,26 @@
 #define SLEEPTIMER_8S        WDTCR |= (1<<WDP3)|(0<<WDP2)|(0<<WDP1)|(1<<WDP0)
 #define SLEEPTIMER_START     WDTCR |= (1<<WDTIE); WDTCR |= (0<<WDE); sei(); set_sleep_mode(SLEEP_MODE_PWR_DOWN)
 #define SLEEPTIMER_SLEEP     sleep_mode()
-#define OVERFLOWTIMER_1X2MHZ TCCR0B |= (1<<CS00) /* 177.50 us 256x 0.833us @ 1.2Mhz */ 
-#define OVERFLOWTIMER_150KHZ TCCR0B |= (1<<CS01) /* 1706.6 us 256x 6.666us @ 1.2Mhz */ 
-#define OVERFLOWCOUNT_25PCT  TCNT0 = 63          /* 160.00 us overflow interval */
-#define OVERFLOWCOUNT_50PCT  TCNT0 = 127         /* 106.66 us overflow interval */
-#define OVERFLOWCOUNT_75PCT  TCNT0 = 191         /*  53.33 us overflow interval */
-#define OVERFLOWCOUNT_10US   TCNT0 = 244         /*  10.00 us overflow interval 255-12+1  */
-#define OVERFLOWCOUNT_13US   TCNT0 = 240         /*  13.33 us overflow interval 255-16+1  */
-#define OVERFLOWCOUNT_100US  TCNT0 = 136         /* 100.00 us overflow interval 255-120+1 */
-#define OVERFLOWCOUNT_125US  TCNT0 = 106         /* 125.00 us overflow interval 255-150+1 */
+#define OVERFLOWTIMER_1X2MHZ TCCR0B |= (1<<CS00)             /* 177.50 us 256x 0.833us @ 1.2Mhz */ 
+#define OVERFLOWTIMER_150KHZ TCCR0B |= (1<<CS01)             /* 1706.6 us 256x 6.666us @ 1.2Mhz */ 
+#define OVERFLOWCOUNT_25PCT  TCNT0 = 63                      /* 160.00 us overflow interval */
+#define OVERFLOWCOUNT_50PCT  TCNT0 = 127                     /* 106.66 us overflow interval */
+#define OVERFLOWCOUNT_75PCT  TCNT0 = 191                     /*  53.33 us overflow interval */
+#define OVERFLOWCOUNT_10US   TCNT0 = 244                     /*  10.00 us overflow interval 255-12+1  */
+#define OVERFLOWCOUNT_13US   TCNT0 = 240                     /*  13.33 us overflow interval 255-16+1  */
+#define OVERFLOWCOUNT_20US   TCNT0 = 232                     /*  20.00 us overflow interval 255-24+1  */
+#define OVERFLOWCOUNT_20US   TCNT0 = 226                     /*  25.00 us overflow interval 255-30+1  */
+#define OVERFLOWCOUNT_100US  TCNT0 = 136                     /* 100.00 us overflow interval 255-120+1 */
+#define OVERFLOWCOUNT_125US  TCNT0 = 106                     /* 125.00 us overflow interval 255-150+1 */
+#define OVRFLTI600KHZ_2X3KHZ TCCR0B |= (1<<CS00)             /* 426.66 us 256x 1.666us @ 600kHz 001 = 1{1] */ 
+#define OVRFLTI600KHZ_293HZ  TCCR0B |= (1<<CS01)             /* 3413.3 us 256x 13.33us @ 600kHz 010 = 2[8] */ 
+#define OVRFLCNT2X3KHZ_10US  TCNT0 = 250                     /*     10 us overflow interval 255-6+1  (6x1.6666) */
+#define OVRFLCNT2X3KHZ_15US  TCNT0 = 247                     /*     15 us overflow interval 255-9+1  (9x1.6666) */
+#define OVRFLCNT2X3KHZ_20US  TCNT0 = 244                     /*     20 us overflow interval 255-12+1 (12x1.6666) */
+#define OVRFLCNT2X3KHZ_25US  TCNT0 = 241                     /*     25 us overflow interval 255-15+1 (15x1.6666) */
+#define OVRFLCNT2X3KHZ_50US  TCNT0 = 226                     /*     50 us overflow interval 255-30+1 (30x1.6666) */
+#define OVRFLCNT2X3KHZ_100US TCNT0 = 196                     /*    100 us overflow interval 255-60+1 (60x1.6666) */
+#define OVRFLCNT2X3KHZ_125US TCNT0 = 181                     /*    125 us overflow interval 255-75+1 (75x1.6666) */
 #define TIMER_CLEAR          cli()
 #define TIMER_START          sei()
 #define TIMER_USE_OVERFLOW   TIMSK0 |= (1<<TOIE0) /* TIMSK0 |= _BV(TOIE0) */
