@@ -39,6 +39,7 @@
 #define SLEEPTIMER_2S        WDTCR |= (0<<WDP3)|(1<<WDP2)|(1<<WDP1)|(1<<WDP0)
 #define SLEEPTIMER_4S        WDTCR |= (1<<WDP3)|(0<<WDP2)|(0<<WDP1)|(0<<WDP0)
 #define SLEEPTIMER_8S        WDTCR |= (1<<WDP3)|(0<<WDP2)|(0<<WDP1)|(1<<WDP0)
+#define SLEEPTIMER_CLEAR     WDTCR &= ~((1 << WDP3)|(1 << WDP2)|(1 << WDP1)|(1 << WDP0))
 #define SLEEPTIMER_START     WDTCR |= (1<<WDTIE); WDTCR |= (0<<WDE); sei(); set_sleep_mode(SLEEP_MODE_PWR_DOWN)
 #define SLEEPTIMER_SLEEP     sleep_mode()
 #define OVERFLOWTIMER_1X2MHZ TCCR0B |= (1<<CS00)             /* 177.50 us 256x 0.833us @ 1.2Mhz */ 
@@ -240,4 +241,3 @@ void writePWM1(int val)
   }
 
 #endif // IOTOOL_ATTINY13A_LOWLEVEL_H_
-
