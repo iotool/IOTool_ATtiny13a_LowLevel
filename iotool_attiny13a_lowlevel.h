@@ -16,7 +16,7 @@
 // 2018-04-13  RoHa  v1.3c reset memory
 // 2018-09-29  RoHa  v1.4 pwm on/off
 // 2019-03-21  RoHa  v1.5 pwm ovrfl 600kHz cpu
-// 2019-03-21  RoHa  v1.5b timer comp
+// 2019-03-21  RoHa  v1.5b timer comp, delay 33ms
 
 #ifndef IOTOOL_ATTINY13A_LOWLEVEL_H_
 #define IOTOOL_ATTINY13A_LOWLEVEL_H_
@@ -215,6 +215,13 @@ void writePWM1(int val)
 #define DELAY_100MS_600KHZ  _delay_ms(60)
 #define DELAY_100MS_300KHZ  _delay_ms(30)
 #define DELAY_100MS_150KHZ  _delay_ms(15)
+#define DELAY_33MS_9MHZ6    _delay_ms(320)
+#define DELAY_33MS_4MHZ8    _delay_ms(160)
+#define DELAY_33MS_2MHZ4    _delay_ms(80)
+#define DELAY_33MS_1MHZ2    _delay_ms(40)
+#define DELAY_33MS_600KHZ   _delay_ms(20)
+#define DELAY_33MS_300KHZ   _delay_ms(10)
+#define DELAY_33MS_150KHZ   _delay_ms(5)
 
 #define RESET_BUTTON_MAGIC  0xDE49
 
