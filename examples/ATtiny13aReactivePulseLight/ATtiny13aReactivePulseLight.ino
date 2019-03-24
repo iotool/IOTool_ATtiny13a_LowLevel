@@ -9,7 +9,6 @@
 //         PB4 (3  6) PB1
 // GND --- GND (4  5) PB0
 
-
 #define IOTOOL__F_CPU 1200000UL   //  600 kHz CPU 
 #include "iotool_attiny13a_lowlevel.h"
 
@@ -19,7 +18,7 @@ typedef struct {                 //
   uint16_t count;                //  loopcount
   uint16_t adc_ldr;              //  light
   unsigned poweron:1;            //  poweron
-  unsigned :4;                   //  
+  unsigned blinktime:4;          //  pulsetime
   unsigned blinkcount:3;         //  pulsecount
   uint8_t  blinkstream[8];       //  pulsestream
 
@@ -89,6 +88,15 @@ void main_work_blink()
       }
     }
   }
+  if (gRstMem.blinkcount >= blink_cntmin) {
+    if (gRstMem.blinktime < 15) {
+      gRstMem.blinktime++;
+    }
+  } else {
+    if (gRstMem.blinktime > 0) {
+      gRstMem.blinktime--;
+    }
+  }
 }
 
 void main_work() 
@@ -99,7 +107,10 @@ void main_work()
   ADC_DISABLE;
   main_work_blink();
   DIGITALWRITE_PB2_LOW;
-  if (gRstMem.blinkcount >= blink_cntmin) {
+  if (gRstMem.blinktime < 2) {
+    DIGITALWRITE_PB2_LOW;
+  }
+  if (gRstMem.blinktime > 8) {
     DIGITALWRITE_PB2_HIGH;
   }
 }
