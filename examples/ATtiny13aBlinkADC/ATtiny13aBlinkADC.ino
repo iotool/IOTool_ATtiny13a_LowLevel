@@ -22,6 +22,8 @@
 #include <avr/eeprom.h>      // eeprom data
 #include <util/delay.h>      // low level delay
 
+#define DELAY_10MS_1MHZ2    _delay_ms(12)
+
 #define RESET_MAGIC  0xDE49
 typedef struct {                 //
   uint16_t crc;                  //
@@ -45,7 +47,11 @@ int main() {
   // --- input ---
   ADC_ENABLE;
   ADC1_PB2_SELECT;
-  uint16_t adc = readADC(4);  
+  uint16_t adc = readADC(2);  
+  DELAY_10MS_1MHZ2; adc += readADC(2);
+  DELAY_10MS_1MHZ2; adc += readADC(2);
+  DELAY_10MS_1MHZ2; adc += readADC(2);
+  adc /= 4;
   
   // --- reduce current ---
   ADCSRA &= ~(1<<ADEN);   // disable ADC to reduce current
